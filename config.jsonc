@@ -21,7 +21,6 @@
         "mpris",
         "custom/audio_idle_inhibitor",
         "idle_inhibitor",
-        "load",
         "wireplumber",
         "custom/weather",
         "tray"
@@ -161,7 +160,6 @@
         "mpris",
         "custom/audio_idle_inhibitor",
         "idle_inhibitor",
-        "load",
 	"wireplumber",
         "backlight",
         "custom/weather",
@@ -297,7 +295,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click": "kitty -e 'bluetui'",
         "on-click-right": "pavucontrol"
     }
 },
