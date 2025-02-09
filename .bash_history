@@ -46,3 +46,58 @@ ls
 clear
 ls
 vflake hyprland.conf 
+cd Public/
+ls
+ls ../
+mv ../hyprland_config/ 
+mv -r../hyprland_config/ 
+mv -r ../hyprland_config/ 
+mvdir ../hyprland_config 
+mv --help
+ranger
+clear
+mkdir ../.config/waybar
+ls
+cd hyprland_config/
+ls
+ln config ../../.config/waybar/
+ln style.css ../../.config/waybar/
+ls
+vflake config
+pavucontrol 
+waybar 
+clear
+ls
+clear
+git status 
+git add config 
+git commit -m "updated config"
+git push origin main
+clear
+ls
+clear
+cd sakey-wakey-bakey/
+git remote -c
+git remote -v
+clear
+git remote -v
+git status 
+git branch 
+git config --global user.email "michaelvcumbo21@proton.me"
+git config --global user.email
+clear
+ls
+ls
+clear
+ls
+cd ../
+cd Public/
+ls
+vflake hyprland_config/config
+git status 
+cd hyprland_config/
+ls
+git status 
+git add config 
+git commit -m "added cal"
+git push origin main
