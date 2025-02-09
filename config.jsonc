@@ -12,17 +12,16 @@
         "hyprland/window",
         "hyprland/mode",
         "hyprland/scratchpad",
-        "cava"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
         "mpris",
+        "cava",
         "custom/audio_idle_inhibitor",
         "idle_inhibitor",
         "wireplumber",
-        "custom/weather",
         "tray"
     ],
     // Modules configuration
@@ -103,6 +102,10 @@
         "icon-size": 14,
         "spacing": 10
     },
+     "custom/power": {
+        "format": " ",
+        "on-click": "wlogout"
+        },
     "load": {
         "format": " {}"
     },
@@ -151,16 +154,17 @@
         "hyprland/window",
         "hyprland/mode",
         "hyprland/scratchpad",
-        "cava"
     ],
     "modules-center": [
         "clock"
     ],
     "modules-right": [
         "mpris",
+        "cava",
+        "custom/power",
         "custom/audio_idle_inhibitor",
         "idle_inhibitor",
-	"wireplumber",
+        "wireplumber",
         "backlight",
         "custom/weather",
         "battery",
@@ -260,6 +264,11 @@
         "exec": "wttrbar --location Baltimore,Maryland",
         "return-type": "json"
     },
+     "custom/power": {
+        "format": "{icon}",
+        "format-icons":[" "],
+        "on-click": "wlogout"
+        },
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon} {percent}%",
@@ -311,13 +320,13 @@
         "hyprland/workspaces",
         "hyprland/mode",
         "hyprland/scratchpad",
-        "cava"
     ],
     "modules-center": [
+        "clock"
     ],
     "modules-right": [
+        "cava",
         "hyprland/window",
-        "clock"
     ],
     "hyprland/workspaces": {
         "format": " {icon} ",

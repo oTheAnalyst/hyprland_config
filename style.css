@@ -142,7 +142,8 @@ button:hover {
 }
 
 #idle_inhibitor,
-#weather,
+#custom-power,
+#custom-weather,
 #cava,
 #scratchpad,
 #mode,
@@ -230,3 +231,4 @@ label:focus {
 #scratchpad.empty {
     background: transparent;
 }
+
