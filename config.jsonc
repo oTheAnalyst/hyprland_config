@@ -304,7 +304,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "kitty -e 'bluetui'",
+        "on-click": "kitty --class=bluetui -e 'bluetui'",
         "on-click-right": "pavucontrol"
     }
 },
