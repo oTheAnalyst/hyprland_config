@@ -165,6 +165,7 @@
         "custom/audio_idle_inhibitor",
         "idle_inhibitor",
         "wireplumber",
+        "network",
         "backlight",
         "custom/weather",
         "battery",
@@ -178,6 +179,15 @@
             "default": ""
             }
         },
+     "network": {
+     "interface": "wlp2s0",
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "{ifname}  ",
+        "format-disconnected": " ",
+        "max-length": 50,
+        "on-click": "kitty --class=nmtui -e 'nmtui'"
+   },
     "hyprland/window": {
         "format": "{title}",
         "max-length": 80,
