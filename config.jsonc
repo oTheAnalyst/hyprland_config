@@ -5,7 +5,7 @@
     // "position": "bottom", // Waybar position (top|bottom|left|right)
     // "height": 24, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 5, // Gaps between modules (5px)
+    "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "hyprland/workspaces",
@@ -19,9 +19,14 @@
     "modules-right": [
         "mpris",
         "cava",
+        "custom/power",
         "custom/audio_idle_inhibitor",
         "idle_inhibitor",
         "wireplumber",
+        "network",
+        "backlight",
+        "custom/weather",
+        "battery",
         "tray"
     ],
     // Modules configuration
@@ -32,13 +37,26 @@
             "default": ""
             }
         },
+     "network": {
+     "interface": "wlp1s0",
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "{ifname}  ",
+        "format-disconnected": " ",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+        "on-click": "kitty --class=nmtui -e 'nmtui'"
+   },
     "hyprland/window": {
         "format": "{title}",
         "max-length": 80,
         "all-outputs": false
     },
     "cava": {
-	//"cava_config": "$XDG_CONFIG_HOME/cava/config",
+	//"cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
 	"framerate": 30,
 	"autosens": 1,
 	"bars": 14,
@@ -54,11 +72,11 @@
 	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
 	"actions": {
 	    "on-click-right": "mode"
-        }
+	}
     },
     "mpris": {
-        //"player": "Feishin",
-     "format": " {status_icon} {dynamic}",
+        "player": "Feishin",
+ 	"format": " {status_icon} {dynamic}",
         "interval": 1,
         "dynamic-len": 60,
 	"status-icons": {
@@ -102,10 +120,6 @@
         "icon-size": 14,
         "spacing": 10
     },
-     "custom/power": {
-        "format": " ",
-        "on-click": "wlogout"
-        },
     "load": {
         "format": " {}"
     },
@@ -122,6 +136,31 @@
         "exec": "wttrbar --location Baltimore,Maryland",
         "return-type": "json"
     },
+     "custom/power": {
+        "format": "{icon}",
+        "format-icons":[" "],
+        "on-click": "wlogout"
+        },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": "󰃨 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
     "wireplumber": {
         "scroll-step": 5, // %, can be a float
         "format": "{icon} {volume}%",
@@ -137,7 +176,187 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "on-click": "kitty --class=bluetui -e 'bluetui'",
+        "on-click-right": "pavucontrol"
+    }
+},
+{   "output": ["DP-2"],
+    // "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    // "height": 24, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    "spacing": 4, // Gaps between modules (4px)
+    // Choose the order of the modules
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window",
+        "hyprland/mode",
+        "hyprland/scratchpad",
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "mpris",
+        "cava",
+        "custom/power",
+        "custom/audio_idle_inhibitor",
+        "idle_inhibitor",
+        "wireplumber",
+        "network",
+        "backlight",
+        "custom/weather",
+        "battery",
+        "tray"
+    ],
+    // Modules configuration
+    "hyprland/workspaces": {
+        "format": " {icon} ",
+        "format-icons": {
+            "active": "",
+            "default": ""
+            }
+        },
+     "network": {
+     "interface": "wlp1s0",
+        "format": "{ifname}",
+        "format-wifi": "{essid} ({signalStrength}%)  ",
+        "format-ethernet": "{ifname}  ",
+        "format-disconnected": " ",
+        "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+        "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+        "tooltip-format-ethernet": "{ifname} ",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+        "on-click": "kitty --class=nmtui -e 'nmtui'"
+   },
+    "hyprland/window": {
+        "format": "{title}",
+        "max-length": 80,
+        "all-outputs": false
+    },
+    "cava": {
+	//"cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
+	"framerate": 30,
+	"autosens": 1,
+	"bars": 14,
+	"lower_cutoff_freq": 50,
+	"higher_cutoff_freq": 10000,
+	"method": "pulse",
+	"source": "auto",
+	"stereo": true,
+	"bar_delimiter": 0,
+	"noise_reduction": 0.77,
+	"input_delay": 2,
+        "hide_on_silence": true,
+	"format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" ],
+	"actions": {
+	    "on-click-right": "mode"
+	}
+    },
+    "mpris": {
+        "player": "Feishin",
+ 	"format": " {status_icon} {dynamic}",
+        "interval": 1,
+        "dynamic-len": 60,
+	"status-icons": {
+		"playing": "▶",
+		"paused": "⏸",
+		"stopped": ""
+	},
+	"dynamic-order": ["title", "artist"],
+	//"ignored-players": ["firefox"]
+    },
+    "custom/audio_idle_inhibitor": {
+        "format": "{icon}",
+        "exec": "hyprland-audio-idle-inhibit --dry-print-both-waybar --ignore-source-outputs cava",
+        "exec-if": "which hyprland-audio-idle-inhibit",
+        "return-type": "json",
+        "format-icons": {
+            "output": "",
+            "input": "",
+            "output-input": "  ",
+            "none": ""
+        }
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "hyprland/mode": {
+        "format": "{}"
+    },
+    "hyprland/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+    "tray": {
+        "icon-size": 14,
+        "spacing": 10
+    },
+    "load": {
+        "format": " {}"
+    },
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": " {:%H:%M}",
+        "format-alt": " {:%a %F}"
+    },
+    "custom/weather": {
+        "format": "{}°",
+        "tooltip": true,
+        "interval": 3600,
+        "exec": "wttrbar --location Baltimore,Maryland",
+        "return-type": "json"
+    },
+     "custom/power": {
+        "format": "{icon}",
+        "format-icons":[" "],
+        "on-click": "wlogout"
+        },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""]
+    },
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}%",
+        "format-full": "{icon} {capacity}%",
+        "format-charging": "󰃨 {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "wireplumber": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-bluetooth-muted": "󰆪 {icon}",
+        "format-muted": "󰆪",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "󰂑",
+            "headset": "󰂑",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "kitty --class=bluetui -e 'bluetui'",
         "on-click-right": "pavucontrol"
     }
 },
