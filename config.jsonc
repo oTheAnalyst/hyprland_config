@@ -38,7 +38,6 @@
             }
         },
      "network": {
-     "interface": "enp5s0",
         "format": "{ifname}",
         "format-wifi": "{essid} ({signalStrength}%)  ",
         "format-ethernet": "{ifname}  ",
@@ -218,7 +217,6 @@
             }
         },
      "network": {
-     "interface": "enp5s0",
         "format": "{ifname}",
         "format-wifi": "{essid} ({signalStrength}%)  ",
         "format-ethernet": "{ifname}  ",
@@ -399,7 +397,6 @@
             }
         },
      "network": {
-     "interface": "enp5s0",
         "format": "{ifname}",
         "format-wifi": "{essid} ({signalStrength}%)  ",
         "format-ethernet": "{ifname}  ",
