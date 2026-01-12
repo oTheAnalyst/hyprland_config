@@ -1,14 +1,13 @@
 /* colors */
 /* Gruvbox Dark */
-@define-color bg        #282828;
+@define-color bg        #292c3d;
 @define-color bg0       #1d2021;
-@define-color fglight   #282828;
+@define-color fglight   #292c3d;
 @define-color bg1       #3c3836;
 @define-color bg2       #504945;
 @define-color bg3       #665c54;
 @define-color bg4       #7c6f64;
-@define-color fg        #ebdbb2;
-@define-color red       #cc241d;
+@define-color fg        #8d8186; @define-color red       #cc241d;
 @define-color green     #98971a;
 @define-color yellow    #d79921;
 @define-color blue      #458588;
@@ -30,7 +29,7 @@
 /*
 @define-color bg        #fbf1c7;
 @define-color fglight   #fbf1c7;
-@define-color bg1       #ebdbb2;
+@define-color bg1       #8d8186;
 @define-color bg2       #d5c4a1;
 @define-color bg3       #bdae93;
 @define-color bg4       #a89984;
@@ -64,7 +63,7 @@ window#waybar {
     font-family: FontAwesome, monospace;
     background-color: transparent;
     border-bottom: 0px;
-    color: #ebdbb2;
+    color: #8d8186;
     transition-property: background-color;
     transition-duration: .5s;
 }
@@ -106,17 +105,17 @@ button {
 /*
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ebdbb2;
+    box-shadow: inset 0 -3px #8d8186;
 } */
 
 #workspaces {
-    background-color: #282828;
+    background-color: #292c3d;
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #ebdbb2;
+    color: #8d8186;
     border-radius: 0;
 }
 
@@ -129,7 +128,7 @@ button:hover {
 }
 
 #workspaces button:hover {
-    color: #d79921;
+    color: #ff1493;
 }
 
 #workspaces button.focused {
@@ -145,13 +144,13 @@ button:hover {
 #custom-power,
 #custom-weather,
 #cava,
-#scratchpad,
-#mode,
 #network,
 #network.disconnected,
 #network.linked,
 #network.ethernet,
 #network.wifi,
+#scratchpad,
+#mode,
 #window,
 #clock,
 #battery,
@@ -161,13 +160,13 @@ button:hover {
 #mpris,
 #load {
     padding: 0 10px;
-    background-color: #282828;
-    color: #ebdbb2;
+    background-color: #292c3d;
+    color: #8d8186;
 }
 
 #mode {
     background-color: #689d6a;
-    color: #282828;
+    color: #292c3d;
     /* box-shadow: inset 0 -3px #ffffff; */
 }
 
@@ -187,20 +186,20 @@ button:hover {
 
 #battery.charging, #battery.plugged {
     background-color: #98971a;
-    color: #282828;
+    color: #292c3d;
 }
 
 @keyframes blink {
     to {
-        background-color: #282828;
-        color: #ebdbb2;
+        background-color: #292c3d;
+        color: #8d8186;
     }
 }
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
     background-color: #cc241d;
-    color: #ebdbb2;
+    color: #8d8186;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: steps(12);
@@ -226,7 +225,7 @@ label:focus {
 
 #mpris.playing {
     background-color: #d79921;
-    color: #282828;
+    color: #292c3d;
 }
 
 #tray menu {
